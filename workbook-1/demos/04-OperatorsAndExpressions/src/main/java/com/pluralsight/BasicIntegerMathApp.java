@@ -4,24 +4,27 @@ public class BasicIntegerMathApp
 {
     public static void main(String[] args)
     {
-        int first = 10;
-        int second = 3;
-        int result;
+        float first = 10;
+        float second = 3;
+        float result;
 
         result = first + second;
-        System.out.println(result);  // displays 13
+        System.out.println(result);  // displays 13.0
 
         result = first - second;
-        System.out.println(result);  // displays 7
+        System.out.println(result);  // displays 7.0
 
         result = first * second;
-        System.out.println(result);  // displays 30
+        System.out.println(result);  // displays 30.0
 
         result = first / second;
-        System.out.println(result);  // displays 3
+        System.out.println(result); // displays 3.33333
 
         result = first % second;
-        System.out.println(result);  // displays 1
+        System.out.println(result);  // displays 1.0
+
+        result = second - (first % second);
+        System.out.println(result);  // displays 2.0
     }
 
 }

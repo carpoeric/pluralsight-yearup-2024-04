@@ -22,6 +22,7 @@ public class AssignmentOperators
 
 
         // other assignment operators
+        System.out.println();
         int numberOfStudents;
 
         // adding

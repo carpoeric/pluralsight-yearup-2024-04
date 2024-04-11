@@ -5,6 +5,7 @@ public class VariableLiterals
     public static void main(String[] args)
     {
         // using hardcoded literal values
+        long bigNum = 9_223_372_036_845_775_809L;
 
         // whole numbers
         byte byteValue = 101; // whole numbers are treated as int by default, but will be converted to byte automatically as needed
