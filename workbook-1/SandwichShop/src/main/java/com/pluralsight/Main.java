@@ -73,23 +73,17 @@ public class Main
         return  userInput.nextInt();
     }
 
-    public static int getSelectedQuantity()
+    public static boolean getLoaded()
     {
-        System.out.print("How many sammies? ");
-        return userInput.nextInt();
+        System.out.print("Do you want it LOADED? (yes/no): ");
+        String response = userInput.next();
+        return response.equalsIgnoreCase("yes");
     }
 
     public static int getAge()
     {
         System.out.print("Please enter your age: ");
         return userInput.nextInt();
-    }
-
-    public static boolean getLoaded()
-    {
-        System.out.print("Do you want it LOADED? (yes/no): ");
-        String response = userInput.next();
-        return response.equalsIgnoreCase("yes");
     }
 
     public static double calculateTotal(double price, int age, boolean loadedSammie)
