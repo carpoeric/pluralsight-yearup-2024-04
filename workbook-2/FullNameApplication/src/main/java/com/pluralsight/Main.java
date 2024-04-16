@@ -8,16 +8,20 @@ public class Main
     {
         Scanner scanner = new Scanner(System.in);
 
+
+
         //output
         System.out.println("Thanks for visiting the Full Name App!");
+
         System.out.print("Please enter your first name: ");
         String firstName = scanner.nextLine().trim();
+
+        System.out.print("Please enter your middle name (optional): ");
+        String middleName = scanner.nextLine().trim();
 
         System.out.print("Please enter your last name: ");
         String lastName = scanner.nextLine().trim();
 
-        System.out.print("Please enter your middle name (optional): ");
-        String middleName = scanner.nextLine().trim();
 
         System.out.print("Please enter your suffix (optional): ");
         String suffix = scanner.nextLine().trim();
