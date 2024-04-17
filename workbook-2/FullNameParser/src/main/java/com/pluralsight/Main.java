@@ -16,7 +16,7 @@ public class Main
         // Split
         String[] nameParts = fullNameIn.split(" ");
 
-        // Formatting
+        // Format
         if (nameParts.length < 2 || nameParts.length > 3)
         {
             System.out.println("Sorry, please enter your name in the format: (first,last) or (first,middle,last.)");
