@@ -5,14 +5,17 @@ import java.util.Scanner;
 public class Main
 {
     static final Scanner userInput = new Scanner(System.in);
+    static final int MAX_VEHICLES = 20;
+    static int vehicleCount = 0;
+    static Vehicle[] vehicles = new Vehicle[MAX_VEHICLES];
 
     public static void main(String[] args)
     {
-        // create an array of vehicles here
-
+        // Preload the array with vehicles
+        preloadVehicles();
 
         int choice = 0;
-        while(choice != 6)
+        while (choice != 6)
         {
             // print the home screen
             System.out.println();
@@ -25,26 +28,25 @@ public class Main
             System.out.println("5 - Add a vehicle");
             System.out.println("6 - Quit");
             System.out.println();
-            System.out.println("Enter your command");
+            System.out.println("Enter your command:");
             choice = Integer.parseInt(userInput.nextLine());
 
-            switch(choice)
+            switch (choice)
             {
                 case 1:
-                    // call the list all vehicles (pass the array)
-                    // listAllVehicles(vehicles);
+                    listAllVehicles(vehicles);
                     break;
                 case 2:
-                    // call the search by make/model
+                    searchByMakeModel(vehicles);
                     break;
                 case 3:
-                    // call the search by price
+                    searchByPrice(vehicles);
                     break;
                 case 4:
-                    // call the search by color
+                    searchByColor(vehicles);
                     break;
                 case 5:
-                    // add a vehicle
+                    addVehicle(vehicles);
                     break;
                 case 6:
                     System.out.println();
@@ -55,15 +57,30 @@ public class Main
                     System.out.println("Invalid selection");
                     break;
             }
-
         }
+    }
 
-
+    public static void preloadVehicles()
+    {
+        // Preloading vehicles
+        vehicles[0] = new Vehicle(101121, "Ford Explorer", "Red", 45000, 13500);
+        vehicles[1] = new Vehicle(101122, "Toyota Camry", "Blue", 60000, 11000);
+        vehicles[2] = new Vehicle(101123, "Chevy Malibu", "Black", 50000, 9700);
+        vehicles[3] = new Vehicle(101124, "Honda Civic", "White", 70000, 7500);
+        vehicles[4] = new Vehicle(101125, "Subaru Outback", "Green", 55000, 14500);
+        vehicles[5] = new Vehicle(101126, "Jeep Wrangler", "Yellow", 30000, 16000);
+        vehicleCount = 6;
     }
 
     public static void listAllVehicles(Vehicle[] vehicles)
     {
-        // loop through vehicles and print all
+        System.out.println("Listing all vehicles:");
+        for (int i = 0; i < vehicleCount; i++)
+        {
+            System.out.println("Vehicle " + (i + 1) + ":");
+            System.out.println(vehicles[i]);
+            System.out.println();
+        }
     }
 
     public static void searchByMakeModel(Vehicle[] vehicles)
@@ -87,16 +104,33 @@ public class Main
         // loop through vehicles and print only vehicles that match the search
     }
 
-    // bonus (optional)
     public static void addVehicle(Vehicle[] vehicles)
     {
-        // get user input
+        if (vehicleCount < MAX_VEHICLES)
+        {
+            // get user input for vehicle details
+            System.out.println("Enter Vehicle ID:");
+            long vehicleId = Long.parseLong(userInput.nextLine());
+            System.out.println("Enter Make/Model:");
+            String makeModel = userInput.nextLine();
+            System.out.println("Enter Color:");
+            String color = userInput.nextLine();
+            System.out.println("Enter Odometer Reading:");
+            int odometerReading = Integer.parseInt(userInput.nextLine());
+            System.out.println("Enter Price:");
+            float price = Float.parseFloat(userInput.nextLine());
 
-        // create a vehicle
+            // create a new vehicle
+            vehicles[vehicleCount] = new Vehicle(vehicleId, makeModel, color, odometerReading, price);
 
-        // add it to the inventory
+            // add it to the inventory
+            vehicleCount++;
 
-        // hint: you will need to create a new array that is 1 bigger than the old one
-        //       then add the new vehicle in the last spot
+            System.out.println("Vehicle added successfully!");
+        }
+        else
+        {
+            System.out.println("Cannot add more vehicles. Maximum capacity reached.");
+        }
     }
 }
